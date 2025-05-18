@@ -1,23 +1,14 @@
-SELECT
-    User.user_id,
-    User.first_name,
-    COUNT(Booking.booking_id) AS total_bookings
-FROM
-    "User"
-    LEFT JOIN Booking ON "User".user_id = Booking.user_id
-GROUP BY
-    "User".user_id, "User".first_name;
-
-
+-- First query: Count bookings per property with proper JOIN
 SELECT
     p.property_id,
-    RANK(b.booking_id) AS total_bookings
+    COUNT(b.booking_id) AS total_bookings
 FROM
-    Property
-    LEFT JOIN Booking ON p.property_id = b.property_id;
+    Property p
+    LEFT JOIN Booking b ON p.property_id = b.property_id
+GROUP BY
+    p.property_id;
 
-
-
+-- Second query: Rank properties by number of bookings
 SELECT
     property_id,
     COUNT(*) AS total_bookings,
