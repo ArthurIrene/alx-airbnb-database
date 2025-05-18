@@ -27,7 +27,7 @@ FROM
     Property
 LEFT JOIN 
     Review ON Property.property_id = Review.property_id;
-
+ORDER BY Property.property_id
 
 -- 3️⃣ Simulated FULL OUTER JOIN: Get all users and all bookings
 -- This includes users with no bookings and bookings without users
@@ -40,6 +40,7 @@ SELECT
     User.email
 FROM Booking
 LEFT JOIN User ON Booking.user_id = User.user_id
+
 
 UNION
 
