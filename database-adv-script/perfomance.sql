@@ -15,6 +15,6 @@ CREATE INDEX idx_booking_user_id ON Booking(user_id);
 CREATE INDEX idx_booking_property_id ON Booking(property_id);
 CREATE INDEX idx_booking_id ON Booking(booking_id);
 
-CREATE INDEX idx_user_id ON User(user_id);
+CREATE INDEX idx_user_id ON "User"(user_id);
 CREATE INDEX idx_property_id ON Property(property_id);
 CREATE INDEX idx_payment_booking_id ON Payment(booking_id);
