@@ -1,3 +1,29 @@
+-- performance.sql
+
+SELECT
+    b.booking_id,
+    b.booking_date,
+    u.user_id,
+    u.first_name,
+    u.last_name,
+    p.property_id,
+    p.name AS property_name,
+    p.location,
+    pay.payment_id,
+    pay.payment_method,
+    pay.amount
+FROM
+    Booking b
+    LEFT JOIN "User" u ON b.user_id = u.user_id
+    LEFT JOIN Property p ON b.property_id = p.property_id
+    LEFT JOIN Payment pay ON b.booking_id = pay.booking_id;
+
+
+
+
+
+
+
 SELECT
     b.booking_id,
     u.first_name,
@@ -8,6 +34,9 @@ FROM
     JOIN "User" u ON b.user_id = u.user_id
     JOIN Property p ON b.property_id = p.property_id
     LEFT JOIN Payment pay ON b.booking_id = pay.booking_id;
+
+
+
 
 -- database_index.sql
 
